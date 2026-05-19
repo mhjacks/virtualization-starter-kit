@@ -10,6 +10,24 @@ vms:
       - name: extra
         storage: 40Gi
 
+  desktop:
+    count: 1
+    role: desktop
+    os: windows2k22
+    dataSource: windows2k22
+    efi: true
+    mainDiskStorageBus: sata
+    storage: 50Gi
+    #machineType: "pc-q35-9.2"
+    ports:
+      - name: ssh
+        port: 22
+        protocol: TCP
+        targetPort: 22
+      - name: rdp
+        port: 389
+        protocol: TCP
+        targetPort: 389
 vmNamespace: gitops-vms
 
 registryCredentialExternalSecrets:
@@ -17,11 +35,12 @@ registryCredentialExternalSecrets:
     vaultKey: secret/data/hub/quay-image-robot
 
 externalDataSources:
-  - name: quay-windows
+  - name: windows2k22
     type: registry
     url: "docker://quay.io/martjack/window_image:latest"
     size: 50G
     registryCredentialsSecret: quay-creds #
+
 serviceAccountName: gitops-vms-sa
 
 rbac:
