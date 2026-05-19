@@ -7,6 +7,8 @@ vms:
     additionalDisks:
       - name: data
         storage: 80Gi
+      - name: extra
+        storage: 40Gi
 
 vmNamespace: gitops-vms
 
