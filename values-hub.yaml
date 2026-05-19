@@ -37,7 +37,7 @@ clusterGroup:
     migration-toolkit-for-virtualization:
       name: mtv-operator
       namespace: openshift-mtv
-      channel: release-v2.8
+      channel: release-v2.11
 
   projects:
     - hub
