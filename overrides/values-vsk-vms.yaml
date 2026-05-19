@@ -4,6 +4,9 @@ vms:
     count: 2
     role: server
     os: rhel9
+    additionalDisks:
+      - name: data
+        storage: 80Gi
 
 vmNamespace: gitops-vms
 
