@@ -12,7 +12,18 @@ vms:
 
 vmNamespace: gitops-vms
 
+registryCredentialExternalSecrets:
+  quay-creds:
+    vaultKey: secret/data/hub/quay-image-robot
+
+externalDataSources:
+  - name: quay-windows
+    type: registry
+    url: "docker://quay.io/martjack/window_image:latest"
+    size: 50G
+    registryCredentialsSecret: quay-creds #
 serviceAccountName: gitops-vms-sa
+
 rbac:
   roleBindings:
     - name: view-machine-api
