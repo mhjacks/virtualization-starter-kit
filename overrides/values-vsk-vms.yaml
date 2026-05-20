@@ -18,7 +18,9 @@ vms:
     efi: true
     mainDiskStorageBus: sata
     storage: 50Gi
-    #machineType: "pc-q35-9.2"
+    additionalDisks:
+      - name: data
+        storage: 80Gi
     ports:
       - name: ssh
         port: 22
