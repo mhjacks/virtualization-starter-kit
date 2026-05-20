@@ -37,9 +37,9 @@ registryCredentialExternalSecrets:
 externalDataSources:
   - name: windows2k22
     type: registry
-    url: "docker://quay.io/martjack/window_image:latest"
+    url: "docker://quay.io/martjack/windows_image:latest"
     size: 50G
-    registryCredentialsSecret: quay-creds #
+    registryCredentialsSecret: quay-creds
 
 serviceAccountName: gitops-vms-sa
 
