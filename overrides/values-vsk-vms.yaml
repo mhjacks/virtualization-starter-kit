@@ -17,6 +17,7 @@ vms:
     dataSource: windows2k22
     efi: true
     mainDiskStorageBus: sata
+    additionalDiskStorageBus: sata
     storage: 50Gi
     additionalDisks:
       - name: data
@@ -30,6 +31,7 @@ vms:
         port: 389
         protocol: TCP
         targetPort: 389
+
 vmNamespace: gitops-vms
 
 registryCredentialExternalSecrets:
