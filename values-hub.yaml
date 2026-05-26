@@ -99,6 +99,7 @@ clusterGroup:
       namespace: external-secrets
       argoProject: hub
       chart: openshift-external-secrets
+      chartVersion: 0.0.*
 
     openshift-cnv:
       name: openshift-cnv
