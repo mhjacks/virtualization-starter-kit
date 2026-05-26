@@ -5,6 +5,7 @@ clusterGroup:
 
   namespaces:
     vault:
+    external-secrets:
     external-secrets-operator:
       operatorGroup: true
       targetNamespaces: []
