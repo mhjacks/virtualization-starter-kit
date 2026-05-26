@@ -4,17 +4,24 @@ clusterGroup:
   isHubCluster: true
 
   namespaces:
-    - vault
-    - golang-external-secrets
-    - openshift-cnv
-    - openshift-storage
-    - gitops-vms
-    - openshift-workload-availability:
-        operatorGroup: true
-        targetNamespaces:
-    - openshift-mtv
+    vault:
+    external-secrets-operator:
+      operatorGroup: true
+      targetNamespaces: []
+    openshift-cnv:
+    openshift-storage:
+    gitops-vms:
+    openshift-workload-availability:
+      operatorGroup: true
+      targetNamespaces:
+    openshift-mtv:
 
   subscriptions:
+    eso:
+      name: openshift-external-secrets-operator
+      namespace: external-secrets-operator
+      channel: stable-v1
+
     openshift-virtualization:
       name: kubevirt-hyperconverged
       namespace: openshift-cnv
@@ -39,7 +46,7 @@ clusterGroup:
       namespace: openshift-mtv
       channel: release-v2.11
 
-  projects:
+  argoProjects:
     - hub
 
   imperative:
@@ -74,7 +81,7 @@ clusterGroup:
     ensure-openshift-console-plugins:
       name: ensure-openshift-console-plugins
       namespace: openshift-console
-      project: hub
+      argoProject: hub
       chart: ensure-openshift-console-plugins
       chartVersion: 0.1.*
       extraValueFiles:
@@ -83,28 +90,27 @@ clusterGroup:
     vault:
       name: vault
       namespace: vault
-      project: hub
+      argoProject: hub
       chart: hashicorp-vault
       chartVersion: 0.1.*
 
-    golang-external-secrets:
-      name: golang-external-secrets
-      namespace: golang-external-secrets
-      project: hub
-      chart: golang-external-secrets
-      chartVersion: 0.2.*
+    openshift-external-secrets:
+      name: openshift-external-secrets
+      namespace: external-secrets
+      argoProject: hub
+      chart: openshift-external-secrets
 
     openshift-cnv:
       name: openshift-cnv
       namespace: openshift-cnv
-      project: hub
+      argoProject: hub
       chart: openshift-virtualization-instance
       chartVersion: 0.1.*
 
     odf:
       name: odf
       namespace: openshift-storage
-      project: hub
+      argoProject: hub
       chart: openshift-data-foundations
       chartVersion: 0.2.*
       extraValueFiles:
@@ -113,7 +119,7 @@ clusterGroup:
     gitops-vms:
       name: gitops-vms
       namespace: gitops-vms
-      project: hub
+      argoProject: hub
       chart: edge-gitops-vms
       chartVersion: 0.5.*
       extraValueFiles:
@@ -122,7 +128,7 @@ clusterGroup:
     node-health-check-operator:
       name: node-health-check-operator
       namespace: openshift-workload-availability
-      project: hub
+      argoProject: hub
       chart: node-health-check-operator
       chartVersion: 0.1.*
 
