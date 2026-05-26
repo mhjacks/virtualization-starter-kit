@@ -6,7 +6,7 @@ vms:
     os: rhel9
     additionalDisks:
       - name: data
-        storage: 80Gi
+        storage: 90Gi
       - name: extra
         storage: 40Gi
 
@@ -16,7 +16,7 @@ vms:
     os: windows2k22
     dataSource: windows2k22
     efi: true
-    storage: 50Gi
+    storage: 90Gi
     additionalDisks:
       - name: data
         storage: 80Gi
@@ -60,13 +60,13 @@ externalDataSources:
   - name: windows2k22
     type: registry
     url: "docker://quay.io/martjack/windows-server-2022-standard:latest"
-    size: 50G
+    size: 90Gi
     registryCredentialsSecret: quay-creds
 
   - name: windows2k25
     type: registry
     url: "docker://quay.io/martjack/windows-server-2025-standard:latest"
-    size: 50G
+    size: 90Gi
     registryCredentialsSecret: quay-creds
 
 serviceAccountName: gitops-vms-sa
