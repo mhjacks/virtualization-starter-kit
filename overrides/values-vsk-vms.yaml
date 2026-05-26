@@ -59,13 +59,13 @@ registryCredentialExternalSecrets:
 externalDataSources:
   - name: windows2k22
     type: registry
-    url: "quay.io/martjack/windows-server-2022-standard:latest"
+    url: "docker://quay.io/martjack/windows-server-2022-standard:latest"
     size: 50G
     registryCredentialsSecret: quay-creds
 
   - name: windows2k25
     type: registry
-    url: "quay.io/martjack/windows-server-2025-standard:latest"
+    url: "docker://quay.io/martjack/windows-server-2025-standard:latest"
     size: 50G
     registryCredentialsSecret: quay-creds
 
