@@ -10,14 +10,32 @@ vms:
       - name: extra
         storage: 40Gi
 
-  desktop:
+  desktop22:
     count: 1
-    role: desktop
+    role: desktop22
     os: windows2k22
     dataSource: windows2k22
     efi: true
-    mainDiskStorageBus: sata
-    additionalDiskStorageBus: sata
+    storage: 50Gi
+    additionalDisks:
+      - name: data
+        storage: 80Gi
+    ports:
+      - name: ssh
+        port: 22
+        protocol: TCP
+        targetPort: 22
+      - name: rdp
+        port: 389
+        protocol: TCP
+        targetPort: 389
+
+  desktop25:
+    count: 1
+    role: desktop25
+    os: windows2k25
+    dataSource: windows2k25
+    efi: true
     storage: 50Gi
     additionalDisks:
       - name: data
@@ -41,7 +59,13 @@ registryCredentialExternalSecrets:
 externalDataSources:
   - name: windows2k22
     type: registry
-    url: "docker://quay.io/martjack/windows_image:latest"
+    url: "quay.io/martjack/windows-server-2022-standard:latest"
+    size: 50G
+    registryCredentialsSecret: quay-creds
+
+  - name: windows2k25
+    type: registry
+    url: "quay.io/martjack/windows-server-2025-standard:latest"
     size: 50G
     registryCredentialsSecret: quay-creds
 
@@ -62,5 +86,3 @@ rbac:
       roleRef:
         kind: ClusterRole
         name: view-machine-api
-
-waitForMetalNode: false

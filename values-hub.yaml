@@ -114,11 +114,8 @@ clusterGroup:
       name: gitops-vms
       namespace: gitops-vms
       project: hub
-      #chart: edge-gitops-vms
-      #chartVersion: 0.2.*
-      repoURL: https://github.com/mhjacks/edge-gitops-vms-chart.git
-      chartVersion: addl_disks
-      path: "."
+      chart: edge-gitops-vms
+      chartVersion: 0.5.*
       extraValueFiles:
         - '$patternref/overrides/values-vsk-vms.yaml'
 
