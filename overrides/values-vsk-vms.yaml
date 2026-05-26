@@ -36,7 +36,7 @@ vms:
     os: windows2k25
     dataSource: windows2k25
     efi: true
-    storage: 50Gi
+    storage: 90Gi
     additionalDisks:
       - name: data
         storage: 80Gi
