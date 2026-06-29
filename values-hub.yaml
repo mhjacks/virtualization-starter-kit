@@ -106,8 +106,11 @@ clusterGroup:
       name: openshift-cnv
       namespace: openshift-cnv
       argoProject: hub
-      chart: openshift-virtualization-instance
-      chartVersion: 0.1.*
+      #chart: openshift-virtualization-instance
+      #chartVersion: 0.1.*
+      repoURL: https://github.com/mhjacks/edge-gitops-vms-chart.git
+      chartVersion: set_default_virt_storageclass
+      path: "."
 
     odf:
       name: odf
