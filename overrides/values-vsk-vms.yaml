@@ -66,21 +66,3 @@ externalDataSources:
     url: "docker://quay.io/martjack/windows-server-2025-standard:latest"
     size: 40Gi
     registryCredentialsSecret: quay-creds
-
-serviceAccountName: gitops-vms-sa
-
-rbac:
-  roleBindings:
-    - name: view-machine-api
-      createBinding: true
-      scope:
-        cluster: false
-        namespace: "openshift-machine-api"
-      subjects:
-        kind: ServiceAccount
-        name: gitops-vms-sa
-        namespace: gitops-vms
-        apiGroup: ""
-      roleRef:
-        kind: ClusterRole
-        name: view-machine-api
