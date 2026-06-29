@@ -7,6 +7,9 @@ vms:
     additionalDisks:
       - name: data
         storage: 90Gi
+    additionalPvcDisks:
+      - name: pvcdata
+        storage: 40Gi
 
   desktop22:
     count: 1
@@ -18,6 +21,9 @@ vms:
     additionalDisks:
       - name: data
         storage: 80Gi
+    additionalPvcDisks:
+      - name: pvcdata
+        storage: 40Gi
     ports:
       - name: ssh
         port: 22
@@ -38,6 +44,9 @@ vms:
     additionalDisks:
       - name: data
         storage: 80Gi
+    additionalPvcDisks:
+      - name: pvcdata
+        storage: 40Gi
     ports:
       - name: ssh
         port: 22
