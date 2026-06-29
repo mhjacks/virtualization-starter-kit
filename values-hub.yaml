@@ -125,7 +125,7 @@ clusterGroup:
       #chart: edge-gitops-vms
       #chartVersion: 0.5.*
       repoURL: https://github.com/mhjacks/edge-gitops-vms-chart.git
-      chartVersion: set_default_virt_storageclass
+      chartVersion: add_pvc_disks
       path: "."
       extraValueFiles:
         - '$patternref/overrides/values-vsk-vms.yaml'
