@@ -106,11 +106,8 @@ clusterGroup:
       name: openshift-cnv
       namespace: openshift-cnv
       argoProject: hub
-      #chart: openshift-virtualization-instance
-      #chartVersion: 0.1.*
-      repoURL: https://github.com/mhjacks/edge-gitops-vms-chart.git
-      chartVersion: set_default_virt_storageclass
-      path: "."
+      chart: openshift-virtualization-instance
+      chartVersion: 0.1.*
 
     odf:
       name: odf
@@ -125,8 +122,11 @@ clusterGroup:
       name: gitops-vms
       namespace: gitops-vms
       argoProject: hub
-      chart: edge-gitops-vms
-      chartVersion: 0.5.*
+      #chart: edge-gitops-vms
+      #chartVersion: 0.5.*
+      repoURL: https://github.com/mhjacks/edge-gitops-vms-chart.git
+      chartVersion: set_default_virt_storageclass
+      path: "."
       extraValueFiles:
         - '$patternref/overrides/values-vsk-vms.yaml'
 
