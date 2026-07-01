@@ -1,7 +1,7 @@
 ---
 vmDefaults:
   publishService: true
-  ServiceType: LoadBalancer
+  serviceType: LoadBalancer
 
 vms:
   server:
